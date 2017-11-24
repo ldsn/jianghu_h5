@@ -1,9 +1,10 @@
-import { connect } from 'dva';
+import React from 'react'
+import { connect } from 'dva'
 
 const UserComponent = () => {
   return (
     <div>User</div>
-  );
+  )
 }
 
-export default UserComponent;
+export default connect()(UserComponent)

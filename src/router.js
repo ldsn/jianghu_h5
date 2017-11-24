@@ -1,13 +1,13 @@
-import React from 'react';
-import { Router, Route, Redirect } from 'dva/router';
-import Layout from 'app/layout';
+import React from 'react'
+import { Router, Route } from 'dva/router'
+import Layout from 'app/layout'
 
-function RouterConfig({ history }) {
+function RouterConfig ({ history }) {
   return (
     <Router history={history}>
-      <Route path="/" component={Layout}></Route>
+      <Route path="/" component={Layout} />
     </Router>
-  );
+  )
 }
 
-export default RouterConfig;
+export default RouterConfig

@@ -1,18 +1,26 @@
-import { connect } from 'dva';
+import React from 'react'
+import { connect } from 'dva'
+import SearchBar from '../global/serarchBar'
+import Carousel from './carousel'
+import Articles from './articles'
+import Tools from './tools'
+import { Button } from 'antd-mobile'
 
-const HomeComponent = ({username, password}) => {
+const HomeComponent = () => {
   return (
     <div>
-      username: {username}, <br />
-      password: {password}
+      <SearchBar />
+      <Carousel />
+      <Tools />
+      <Articles />
     </div>
-  );
+  )
 }
 
-function mapStateToProps ({home}) {
+function mapStateToProps ({ home }) {
   return {
     ...home
-  };
+  }
 }
 
-export default connect(mapStateToProps)(HomeComponent);
+export default connect(mapStateToProps)(HomeComponent)
