@@ -9,7 +9,8 @@
     }],
     ["import", {
       "libraryName": "antd-mobile",
-      "style": "css"
+      "libraryDirectory": "lib",
+      "style": true
     }]
   ],
   "env": {
@@ -24,5 +25,6 @@
         "transform-runtime"
       ]
     }
-  }
+  },
+  "theme": "./src/common/theme.js"
 }
