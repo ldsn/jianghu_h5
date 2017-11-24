@@ -13,9 +13,9 @@ const Layout = props => {
       <TabBar {...props}>
         <Switch>
           <Route exect path="/home" component={Home} />
-          <Route exect path="/life" component={User} />
+          <Route exect path="/life" component={Life} />
           <Route exect path="/chat" component={Chat} />
-          <Route exect path="/user" component={Life} />
+          <Route exect path="/user" component={User} />
           <Route exect path="/" component={Home} />
         </Switch>
       </TabBar>
