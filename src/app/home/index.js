@@ -4,7 +4,6 @@ import SearchBar from '../global/serarchBar'
 import Carousel from './carousel'
 import Articles from './articles'
 import Tools from './tools'
-import { Button } from 'antd-mobile'
 
 const HomeComponent = () => {
   return (
