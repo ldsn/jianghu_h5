@@ -31,9 +31,9 @@ class CommentComponent extends React.Component {
   handleVisibleChange = () => {
     const cb = () => {
       this.close()
-      document.removeEventListener('touchmove', cb)
+      this.document.removeEventListener('touchmove', cb)
     }
-    document.addEventListener('touchmove', cb)
+    this.document.addEventListener('touchmove', cb)
   }
 
   close = () => {
@@ -48,14 +48,14 @@ class CommentComponent extends React.Component {
         <Button
           inline
           size="small"
-          icon={ <Icon type="ellipsis" /> }
+          icon={<Icon type="ellipsis" />}
         >
           赞
         </Button>
         <Button
           inline
           size="small"
-          icon={ <Icon type="ellipsis" /> }
+          icon={<Icon type="ellipsis" />}
         >评论</Button>
       </Flex>
     )
