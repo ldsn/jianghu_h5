@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Icon, Popover } from 'antd-mobile'
+import { Flex, Icon, Popover, Button } from 'antd-mobile'
 import Style from './things.less'
 import headDefaultImg from './_head_img.jpeg'
 
@@ -24,11 +24,39 @@ const tempData = [
 
 class CommentComponent extends React.Component {
 
+  state = {
+    visible: false
+  }
+
+  handleVisibleChange = () => {
+    const cb = () => {
+      this.close()
+      document.removeEventListener('touchmove', cb)
+    }
+    document.addEventListener('touchmove', cb)
+  }
+
+  close = () => {
+    this.setState({
+      visible: false
+    })
+  }
+
   popoverItemComponents () {
     return (
       <Flex>
-        <Popover.Item key="4" value="scan" icon={<Icon type="ellipsis" />} data-seed="logId">赞</Popover.Item>
-        <Popover.Item key="1" value="scan" icon={<Icon type="ellipsis" />} data-seed="logId">评论</Popover.Item>
+        <Button
+          inline
+          size="small"
+          icon={ <Icon type="ellipsis" /> }
+        >
+          赞
+        </Button>
+        <Button
+          inline
+          size="small"
+          icon={ <Icon type="ellipsis" /> }
+        >评论</Button>
       </Flex>
     )
   }
@@ -36,26 +64,17 @@ class CommentComponent extends React.Component {
   render () {
     return (
       <Popover
+        onVisibleChange={this.handleVisibleChange}
         overlayClassName="fortest"
         placement="left"
-        overlayStyle={{ color: 'currentColor' }}
+        visible={this.state.visible}
         overlay={this.popoverItemComponents()}
         align={{
           overflow: { adjustY: 0, adjustX: 0 },
           offset: [-10, 0]
         }}
       >
-        <div
-          style={{
-            height: '100%',
-            padding: '0 15px',
-            marginRight: '-15px',
-            display: 'flex',
-            alignItems: 'center'
-          }}
-        >
-          <Icon type="ellipsis" />
-        </div>
+        <Icon type="ellipsis" />
       </Popover>
     )
   }
