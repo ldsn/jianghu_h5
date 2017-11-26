@@ -24,7 +24,7 @@ const tempData = [
 
 class CommentComponent extends React.Component {
 
-  static popoverItemComponents () {
+  popoverItemComponents () {
     return (
       <Flex>
         <Popover.Item key="4" value="scan" icon={<Icon type="ellipsis" />} data-seed="logId">赞</Popover.Item>
@@ -67,7 +67,7 @@ const ThingItems = ({ data }) => {
       <Flex align="start">
         { /* 头像 */ }
         <div className={Style.headImg}>
-          <img use role="presentation" src={data.headImg || headDefaultImg} />
+          <img role="presentation" src={data.headImg || headDefaultImg} />
         </div>
         <Flex.Item>
           { /* 昵称及动态 */ }
