@@ -29,11 +29,13 @@ class CommentComponent extends React.Component {
   }
 
   handleVisibleChange = () => {
+    /* eslint-disable */
     const cb = () => {
       this.close()
-      this.document.removeEventListener('touchmove', cb)
+      document.removeEventListener('touchmove', cb)
     }
-    this.document.addEventListener('touchmove', cb)
+    document.addEventListener('touchmove', cb)
+    /* eslint-enable */
   }
 
   close = () => {

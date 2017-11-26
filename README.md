@@ -16,9 +16,10 @@ npm start
 1. fork 到自己的仓库
 2. 克隆
 3. developing...
-4. push
+4. commit
 5. pull upstream
-6. pull request
+6. push
+7. pull request
 
 ## 与上游保持更新
 
