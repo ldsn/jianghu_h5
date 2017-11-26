@@ -17,7 +17,8 @@ npm start
 2. 克隆
 3. developing...
 4. push
-5. pull request
+5. pull upstream
+6. pull request
 
 ## 与上游保持更新
 
