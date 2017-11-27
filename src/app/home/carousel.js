@@ -2,10 +2,26 @@ import React from 'react'
 import { Carousel } from 'antd-mobile'
 import Style from './css/car.less'
 
-const tempData = ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI']
+const tempData = [
+  {
+    imgs: 'AiyWuByWklrrUDlFignR',
+    url: 'https://zos.alipayobjects.com/rmsportal/',
+    linkUrl: 'https://www.baidu.com'
+  },
+  {
+    imgs: 'AiyWuByWklrrUDlFignR',
+    url: 'https://zos.alipayobjects.com/rmsportal/',
+    linkUrl: 'https://www.baidu.com'
+  },
+  {
+    imgs: 'AiyWuByWklrrUDlFignR',
+    url: 'https://zos.alipayobjects.com/rmsportal/',
+    linkUrl: 'https://www.baidu.com'
+  }
+]
+
 class Car extends React.Component {
   state = {
-    data: ['', '', '', '', ''],
     initialHeight: 176
   }
 
@@ -21,10 +37,10 @@ class Car extends React.Component {
           swipeSpeed={35}
         >
           {tempData.map(ii => (
-            <a href="https://www.baidu.com" key={ii} style={hProp} className={Style.myCarouselLink}>
+            <a href={ii.linkUrl} key={ii} style={hProp} className={Style.myCarouselLink}>
               <img
                 className={Style.myCarouselImg}
-                src={`https://zos.alipayobjects.com/rmsportal/${ii}.png`}
+                src={`${ii.url}${ii.imgs}.png`}
                 alt=""
                 onLoad={() => {
                   this.setState({
