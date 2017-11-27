@@ -1,5 +1,10 @@
 @import '~antd-mobile/lib/style/themes/default.less';
 
+.thingsWrapper {
+  height: 100%;
+  overflow-y: auto;
+}
+
 .box {
   padding: 0.4rem 0.293333rem;
   border-bottom: 1px solid @border-color-base;
@@ -40,4 +45,20 @@
   margin-top: 0.266667rem;
   padding: 0 0.106667rem;
   color: @brand-primary;
+}
+
+// 评论框
+.commentWrapper {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+// 底部 -> 没有更多了 
+.bottomTips {
+  height: 1.333333rem;
+  line-height: 1.333333rem;
+  text-align: center;
+  color: #808080;
 }

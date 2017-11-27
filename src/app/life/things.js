@@ -1,7 +1,9 @@
 import React from 'react'
+import { connect } from 'dva'
 import { Flex, Icon, Popover, Button } from 'antd-mobile'
 import Style from './things.less'
 import headDefaultImg from './_head_img.jpeg'
+import Input from 'app/global/input'
 
 const tempData = [
   {
@@ -28,11 +30,14 @@ class CommentComponent extends React.Component {
     visible: false
   }
 
+  /**
+   * 当点击其他的位置，popover 关闭
+   */
   handleVisibleChange = () => {
     /* eslint-disable */
     const cb = () => {
-      this.close()
       document.removeEventListener('touchmove', cb)
+      this.close()
     }
     document.addEventListener('touchmove', cb)
     /* eslint-enable */
@@ -58,6 +63,7 @@ class CommentComponent extends React.Component {
           inline
           size="small"
           icon={<Icon type="ellipsis" />}
+          onClick={this.props.onComment}
         >评论</Button>
       </Flex>
     )
@@ -82,7 +88,7 @@ class CommentComponent extends React.Component {
   }
 }
 
-const ThingItems = ({ data }) => {
+const ThingItems = ({ data, onComment }) => {
   return (
     <section className={Style.box}>
       <Flex align="start">
@@ -100,7 +106,7 @@ const ThingItems = ({ data }) => {
           <div className={Style.footer}>
             <Flex justify="between">
               <span style={{ color: '#808080' }}>{data.date}</span>
-              <CommentComponent />
+              <CommentComponent onComment={onComment} />
             </Flex>
           </div>
         </Flex.Item>
@@ -109,14 +115,68 @@ const ThingItems = ({ data }) => {
   )
 }
 
-const ThingComponent = () => {
-  return (
-    <div style={{ marginTop: 20 }}>
-      {
-        tempData.map(data => <ThingItems key={data.id} data={data} />)
-      }
-    </div>
-  )
+function mapDispatchToProps (dispatch) {
+  return {
+    toggleTabbarVisible(visible) {
+      dispatch({type: 'env/toggleTabbarVisible', payload: visible})
+    }
+  }
+}
+
+@connect(null, mapDispatchToProps)
+class ThingComponent extends React.Component {
+  state = {
+    commentInputVisible: false
+  }
+
+  /**
+   * 当点击评论按钮时
+   * @param  {[type]} itemId 被点击的动态 Id
+   */
+  handleDoingComment = (itemId) => {
+    this.props.toggleTabbarVisible(false)
+    this.setState({
+      commentInputVisible: true
+    }, () => {
+      this.refs.input.focus()
+    })
+  }
+  /**
+   * 当评论按钮失焦时
+   * @return {[type]} [description]
+   */
+  cancleCommentBlur = () => {
+    this.props.toggleTabbarVisible(true)
+    this.setState({
+      commentInputVisible: false
+    })
+  }
+  render () {
+    return (
+      <div className={Style.thingsWrapper}>
+        {
+          tempData.map(data => 
+            <ThingItems
+              onComment={this.handleDoingComment}
+              key={data.id}
+              data={data}
+            />
+          )
+        }
+        { 
+          this.state.commentInputVisible && <div className={Style.commentWrapper}>
+            <Input
+              ref="input"
+              defaultValue="123"
+              onBlur={ this.cancleCommentBlur }
+              suffix={ <Icon type="check-circle-o" /> }
+            />
+          </div>
+        }
+        <div className={Style.bottomTips}>没有更多了～</div>
+      </div>
+    )
+  }
 }
 
 export default ThingComponent
