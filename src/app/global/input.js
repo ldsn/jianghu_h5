@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Flex, Icon } from 'antd-mobile'
 import Style from './input.less'
 
 export default class Input extends React.Component {
@@ -11,10 +10,6 @@ export default class Input extends React.Component {
     suffix: PropTypes.node
   }
 
-  constructor (props) {
-    super(props)
-  }
-
   focus () {
     this.refs.input.focus()
   }
@@ -22,7 +17,7 @@ export default class Input extends React.Component {
     this.refs.input.blur()
   }
   render () {
-    const props = {...this.props}
+    const props = { ...this.props }
 
     if ('value' in props) {
       props.value = props.value || ''

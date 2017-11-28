@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'dva'
 import { Flex, Icon, Popover, Button } from 'antd-mobile'
+import Input from 'app/global/input'
 import Style from './things.less'
 import headDefaultImg from './_head_img.jpeg'
-import Input from 'app/global/input'
 
 const tempData = [
   {
@@ -117,8 +117,8 @@ const ThingItems = ({ data, onComment }) => {
 
 function mapDispatchToProps (dispatch) {
   return {
-    toggleTabbarVisible(visible) {
-      dispatch({type: 'env/toggleTabbarVisible', payload: visible})
+    toggleTabbarVisible (visible) {
+      dispatch({ type: 'env/toggleTabbarVisible', payload: visible })
     }
   }
 }
@@ -133,7 +133,7 @@ class ThingComponent extends React.Component {
    * 当点击评论按钮时
    * @param  {[type]} itemId 被点击的动态 Id
    */
-  handleDoingComment = (itemId) => {
+  handleDoingComment = () => {
     this.props.toggleTabbarVisible(false)
     this.setState({
       commentInputVisible: true
@@ -155,7 +155,7 @@ class ThingComponent extends React.Component {
     return (
       <div className={Style.thingsWrapper}>
         {
-          tempData.map(data => 
+          tempData.map(data =>
             <ThingItems
               onComment={this.handleDoingComment}
               key={data.id}
@@ -163,13 +163,13 @@ class ThingComponent extends React.Component {
             />
           )
         }
-        { 
+        {
           this.state.commentInputVisible && <div className={Style.commentWrapper}>
             <Input
               ref="input"
               defaultValue="123"
-              onBlur={ this.cancleCommentBlur }
-              suffix={ <Icon type="check-circle-o" /> }
+              onBlur={this.cancleCommentBlur}
+              suffix={<Icon type="check-circle-o" />}
             />
           </div>
         }

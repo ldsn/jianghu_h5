@@ -5,12 +5,8 @@ export default {
       visible: true
     }
   },
-  subscriptions: {
-    setup({ dispatch, history }) {
-    }
-  },
   effects: {
-    *fetch({ payload }, { call, put }) {
+    *fetch ({ payload }, { put }) {
       yield put({ type: 'save' })
     }
   },
