@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'dva'
 import { TabBar, Icon } from 'antd-mobile'
 import { routerRedux } from 'dva/router'
 
@@ -34,6 +35,13 @@ const tabbarConf = {
   }]
 }
 
+function mapStateToProps ({ env }) {
+  return {
+    tabbar: env.tabbar
+  }
+}
+
+@connect(mapStateToProps)
 class TabbarComponent extends React.Component {
   constructor (props) {
     super(props)
@@ -60,6 +68,7 @@ class TabbarComponent extends React.Component {
       >
         <TabBar
           {...tabbarConf.tabbar}
+          hidden={!this.props.tabbar.visible}
         >
           {tabbarConf.items.map(conf => {
             return (
