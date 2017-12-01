@@ -21,12 +21,6 @@ const tempData = [
 
 
 const ArticleItem = ({ data }) => {
-  // const img = () =>{
-
-  // }
-  // const tag = () =>{
-
-  // }
   return (
     <div className={Style.articleItem}>
       <div className={Style.title}>
