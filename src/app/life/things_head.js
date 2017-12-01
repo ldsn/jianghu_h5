@@ -17,18 +17,22 @@ const ThingComponent = () => {
     <div >
       <section className={Style.box}>
         <Flex.Item>
+          { /* 背景图 */ }
+          <div
+            className={Style.imgBg}
+            style={{backgroundImage: `url(${headDefaultImg})`}}
+          >
+          </div>
           <div className={Style.userInfo}>
             { /* 头像及昵称 */ }
             <Flex justify="end">
-              <div className={Style.nickname}>{tempData.nickname}</div>
+              <div>
+                <span className={Style.nickname}>{tempData.nickname}</span>
+              </div>
               <div className={Style.headImg}>
                 <img role="presentation" src={tempData.headImg || headDefaultImg} />
               </div>
             </Flex>
-          </div>
-          { /* 背景图 */ }
-          <div className={Style.imgBg}>
-            <img role="presentation" src={tempData.imgBg || headDefaultImg} />
           </div>
         </Flex.Item>
       </section>

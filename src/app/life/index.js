@@ -5,7 +5,7 @@ import Things from './things'
 
 const LifeComponent = () => {
   return (
-    <div>
+    <div style={{height: '100%', overflowY: 'auto'}}>
       <Thingshead />
 
       <Things />
