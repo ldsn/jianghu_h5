@@ -20,8 +20,8 @@ const ThingComponent = () => {
           { /* 背景图 */ }
           <div
             className={Style.imgBg}
-            style={{backgroundImage: `url(${headDefaultImg})`}}
-          >
+            style={{ backgroundImage: `url(${headDefaultImg})` }}
+          >1
           </div>
           <div className={Style.userInfo}>
             { /* 头像及昵称 */ }
