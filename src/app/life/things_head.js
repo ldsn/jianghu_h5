@@ -21,8 +21,7 @@ const ThingComponent = () => {
           <div
             className={Style.imgBg}
             style={{ backgroundImage: `url(${headDefaultImg})` }}
-          >
-          </div>
+          />
           <div className={Style.userInfo}>
             { /* 头像及昵称 */ }
             <Flex justify="end">

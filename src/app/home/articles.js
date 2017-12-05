@@ -1,7 +1,7 @@
 import React from 'react'
 import { Badge, Icon } from 'antd-mobile'
-import Style from './articles.less'
 import { Link } from 'dva/router'
+import Style from './articles.less'
 
 const tempData = [
   {

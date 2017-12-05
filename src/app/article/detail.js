@@ -5,9 +5,9 @@ import defaultBannerImg from './defaultBanner.jpg'
 
 const mock = {
   articleId: '123123',
-  user:{
-      userId: '123',
-      username: '一个没有梦想的咸鱼',
+  user: {
+    userId: '123',
+    username: '一个没有梦想的咸鱼'
   },
   title: '我心中的欢乐不是自己的',
   desc: '1791年12月5日凌晨0:55分，也就是220年前的此时此刻，名为“上帝宠儿”（Amadeus）的莫扎特离开这个世界。',
@@ -22,9 +22,9 @@ const mock = {
   content: Array(10).join('我坐在德意志的暖冬里，这大约是220年来少有的不是白色的祭日，但也下了好几天的大雨。从一个月前萌生再去维也纳来度过这天的想法，终究因为人穷，也只能志短。好在“天下的水总归一源，不拘哪里的水舀一碗看着哭去，也就尽情了”。')
 }
 
-const ArticleDetail = function () {
+const ArticleDetail = () => {
   const article = mock
-  const { user: publishUser } = mock;
+  const { user: publishUser } = mock
 
   return (
     <div className={Style.wrapper}>
