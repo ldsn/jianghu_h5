@@ -1,3 +1,4 @@
+/* eslint-disable */
 export function getFollowUser ({ userId }) {
 
 }

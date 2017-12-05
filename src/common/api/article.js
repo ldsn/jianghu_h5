@@ -1,8 +1,9 @@
+/* eslint-disable */
 export function setArticle({
-    articleId
-    title
-    content
-    images
+    articleId,
+    title,
+    content,
+    images,
 }) {
 
 }

@@ -1,3 +1,4 @@
-export default getBanners(){
-    
+/* eslint-disable */
+export default function getBanners () {
+  
 }
