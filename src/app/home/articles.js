@@ -1,6 +1,7 @@
 import React from 'react'
 import { Badge, Icon } from 'antd-mobile'
 import Style from './articles.less'
+import { Link } from 'dva/router'
 
 const tempData = [
   {
@@ -23,14 +24,18 @@ const tempData = [
 const ArticleItem = ({ data }) => {
   return (
     <div className={Style.articleItem}>
-      <div className={Style.title}>
-        <h1>{data.title}</h1>
-      </div>
-      <div className={Style.img}>
-        <img src={data.img[0]} alt="" className={Style.imgshow} />
-        <img src={data.img[1]} alt="" className={Style.imgshow} />
-        <img src={data.img[2]} alt="" className={Style.imgshow} />
-      </div>
+      <Link to={`/article/${data.id}`}>
+        <h1 className={Style.title}>{data.title}</h1>
+        <div className={Style.imgBox}>
+          {
+            (data.img || []).map(item => <img
+              src={item}
+              key={item}
+              alt=""
+            />)
+          }
+        </div>
+      </Link>
       <div className={Style.fooder}>
         <Badge text={data.tag[0]} hot style={{ marginLeft: 12, padding: '0 3px', borderRadius: 2 }} />
         <Badge text={data.tag[1]} style={{ marginLeft: 12, padding: '0 3px', backgroundColor: '#f19736', borderRadius: 2 }} />
