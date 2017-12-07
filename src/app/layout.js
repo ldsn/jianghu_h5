@@ -6,6 +6,7 @@ import Home from './home'
 import User from './user'
 import Chat from './chat'
 import Life from './life'
+import ArticleDetail from './article/detail'
 
 const Layout = props => {
   return (
@@ -16,6 +17,7 @@ const Layout = props => {
           <Route exect path="/life" component={Life} />
           <Route exect path="/chat" component={Chat} />
           <Route exect path="/user" component={User} />
+          <Route exect path="/article/:id" component={ArticleDetail} />
           <Route exect path="/" component={Home} />
         </Switch>
       </TabBar>

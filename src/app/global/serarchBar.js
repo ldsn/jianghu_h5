@@ -13,10 +13,9 @@ export default class SearchBarComponent extends React.Component {
   }
   render () {
     return (
-      <div>
+      <div style={{ width: '100%' }}>
         <SearchBar
           value={this.state.value}
-          placeholder="Search"
           onChange={this.onChange}
         />
       </div>

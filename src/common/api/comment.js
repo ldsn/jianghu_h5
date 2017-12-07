@@ -1,17 +1,18 @@
-export async function setTimelineComment ({
-    content,
-    timelineId,
-    timelineCommentId
+/* eslint-disable */
+export function setTimelineComment ({
+  content,
+  timelineId,
+  timelineCommentId
 }) {
-    
+  
 }
 
 export async function setArticleComment ({
-    content,
-    articleId,
-    articleCommentId
+  content,
+  articleId,
+  articleCommentId
 }) {
-    
+  
 }
 
 export async function delTimelineComment({ id }) {
@@ -29,4 +30,3 @@ export async function getTimelineCommentList({ id, page }) {
 export async function getArticleCommentList({ id, page }) {
     
 }
-

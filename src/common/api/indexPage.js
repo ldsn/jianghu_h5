@@ -1,3 +1,4 @@
-export async default getBanners () {
-    
+/* eslint-disable */
+export async function getBanners () {
+
 }

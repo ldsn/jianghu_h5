@@ -1,8 +1,10 @@
-export async function setArticle ({
+
+/* eslint-disable */
+export async function setArticle({
     articleId,
     title,
     content,
-    images
+    images,
 }) {
 
 }
