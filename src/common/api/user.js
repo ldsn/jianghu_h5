@@ -1,12 +1,12 @@
-export function login({ phone, password }) {
+export async function login ({ phone, password }) {
 
 }
 
-export function logout() {
+export async function logout () {
 
 }
 
-export function register({
+export async function register ({
   phone,
   password,
   verifycode
@@ -14,7 +14,7 @@ export function register({
 
 }
 
-export function getUserInfo ({ userId }) {
+export async function getUserInfo ({ userId }) {
 
 }
 

@@ -1,8 +1,8 @@
-export function getTimelineList ({ type }) {
+export async function getTimelineList ({ type }) {
 
 }
 
-export function setTimeline ({ 
+export async function setTimeline ({ 
     title,
     content,
     userId,
@@ -12,10 +12,10 @@ export function setTimeline ({
 
 }
 
-export function delTimeline ({ id }) {
+export async function delTimeline ({ id }) {
 
 }
 
-export function getUserTimelineList ({ userId }) {
+export async function getUserTimelineList ({ userId }) {
     
 }

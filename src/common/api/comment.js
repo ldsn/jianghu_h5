@@ -1,4 +1,4 @@
-export function setTimelineComment ({
+export async function setTimelineComment ({
     content,
     timelineId,
     timelineCommentId
@@ -6,7 +6,7 @@ export function setTimelineComment ({
     
 }
 
-export function setArticleComment ({
+export async function setArticleComment ({
     content,
     articleId,
     articleCommentId
@@ -14,19 +14,19 @@ export function setArticleComment ({
     
 }
 
-export function delTimelineComment({ id }) {
+export async function delTimelineComment({ id }) {
 
 }
 
-export function delArticleComment({ id }) {
+export async function delArticleComment({ id }) {
 
 }
 
-export function getTimelineCommentList({ id, page }) {
+export async function getTimelineCommentList({ id, page }) {
     
 }
 
-export function getArticleCommentList({ id, page }) {
+export async function getArticleCommentList({ id, page }) {
     
 }
 

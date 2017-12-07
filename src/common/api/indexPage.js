@@ -1,3 +1,3 @@
-export default getBanners(){
+export async default getBanners () {
     
 }
