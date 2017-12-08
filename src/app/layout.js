@@ -7,6 +7,7 @@ import User from './user'
 import Chat from './chat'
 import Life from './life'
 import ArticleDetail from './article/detail'
+import ArticleCreate from './article/create'
 
 const Layout = props => {
   return (
@@ -17,6 +18,7 @@ const Layout = props => {
           <Route exect path="/life" component={Life} />
           <Route exect path="/chat" component={Chat} />
           <Route exect path="/user" component={User} />
+          <Route exect path="/article/create" component={ArticleCreate} />
           <Route exect path="/article/:id" component={ArticleDetail} />
           <Route exect path="/" component={Home} />
         </Switch>
