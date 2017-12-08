@@ -1,5 +1,5 @@
 export default {
-  namespace: 'box',
+  namespace: 'chatBox',
   state: {
     list: [{
       chatId: 1,
@@ -9,16 +9,16 @@ export default {
     }]
   },
   subscriptions: {
-    setup({ dispatch, history }) { // eslint-disable-line
+    setup ({ dispatch, history }) { // eslint-disable-line
     }
   },
   effects: {
-    * fetch({ payload }, { call, put }) { // eslint-disable-line
+    * fetch ({ payload }, { call, put }) { // eslint-disable-line
       yield put({ type: 'save' })
     }
   },
   reducers: {
-    save(state, action) {
+    save (state, action) {
       return { ...state, ...action.payload }
     }
   }
