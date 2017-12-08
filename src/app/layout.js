@@ -4,7 +4,7 @@ import { Route, Switch } from 'dva/router'
 import TabBar from './global/tabbar'
 import Home from './home'
 import User from './user'
-import Chat from './chat'
+import Chat from './chat/list'
 import Life from './life'
 import ArticleDetail from './article/detail'
 
