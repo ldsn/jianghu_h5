@@ -1,13 +1,56 @@
 import React from 'react'
 import { connect } from 'dva'
-import { TabBar, Icon } from 'antd-mobile'
-import { routerRedux } from 'dva/router'
+import { TabBar, Icon, Popover } from 'antd-mobile'
+import { routerRedux, Link } from 'dva/router'
+
+class CreateBtn extends React.Component {
+  state = {
+    visible: false
+  }
+
+  handleVisibleChange = visible => {
+    this.setState({
+      visible
+    })
+  }
+
+  render () {
+    return (
+      <Popover
+        mask
+        overlayClassName="fortest"
+        overlayStyle={{ color: 'currentColor' }}
+        visible={this.state.visible}
+        onVisibleChange={this.handleVisibleChange}
+        onSelect={this.handleVisibleChange.bind(this, false)}
+        overlay={[(
+          <Popover.Item
+            key="5"
+            value="article/create"
+            icon={<Icon type="check-circle" />}
+            style={{ whiteSpace: 'nowrap' }}
+          ><Link to="/article/create">创建文章</Link></Popover.Item>
+        ), (
+          <Popover.Item
+            key="6"
+            value="home"
+            icon={<Icon type="check-circle" />}
+          >
+            <Link to="/home">发朋友圈</Link>
+          </Popover.Item>
+        )]}
+        placement="top"
+      >
+        <span style={{ fontSize: 20 }}> + </span>
+      </Popover>
+    )
+  }
+}
 
 const tabbarConf = {
   tabbar: {
-    unselectedTintColor: '#949494',
-    tintColor: '#33A3F4',
-    barTintColor: 'white'
+    barTintColor: 'white',
+    tintColor: 'purple'
   },
   items: [{
     title: '首页',
@@ -20,6 +63,12 @@ const tabbarConf = {
     key: 'life',
     icon: <Icon type="check" />,
     selectedIcon: <Icon type="check-circle" />
+  },
+  {
+    key: 'article/create',
+    onPress: () => {},
+    selectedIcon: <CreateBtn />,
+    icon: <CreateBtn />
   },
   {
     title: '聊天',
@@ -48,8 +97,18 @@ class TabbarComponent extends React.Component {
 
     const tabName = props.location.pathname.slice(1) || 'home'
     this.state = {
-      selectedTab: tabName
+      selectedTab: tabName,
+      content: {
+        [tabName]: props.children
+      }
     }
+  }
+
+  componentWillUpdate (nextProps, nextState) {
+    /* eslint-disable */
+    const { selectedTab } = nextState
+    nextState.content[selectedTab] = nextProps.children
+    /* eslint-enable */
   }
 
   handlePress = key => {
@@ -61,6 +120,7 @@ class TabbarComponent extends React.Component {
   }
 
   render () {
+    const { selectedTab, content } = this.state
     return (
       <div
         className="navbar"
@@ -74,9 +134,13 @@ class TabbarComponent extends React.Component {
             return (
               <TabBar.Item
                 {...conf}
-                selected={this.state.selectedTab === conf.key}
-                onPress={() => this.handlePress(conf.key)}
-              >{this.props.children}</TabBar.Item>
+                selected={selectedTab === conf.key}
+                onPress={() => {
+                  return conf.onPress ? conf.onPress(conf) : this.handlePress(conf.key)
+                }}
+              >
+                { content[conf.key] }
+              </TabBar.Item>
             )
           })}
         </TabBar>
