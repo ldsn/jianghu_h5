@@ -13,9 +13,12 @@
     "antd-mobile": "^2.0.3",
     "babel-runtime": "^6.9.2",
     "dva": "^2.1.0",
+    "events": "^1.1.1",
+    "md5": "^2.2.1",
     "prop-types": "^15.6.0",
     "react": "^15.4.0",
-    "react-dom": "^15.4.0"
+    "react-dom": "^15.4.0",
+    "timeago.js": "^3.0.2"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",

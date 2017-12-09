@@ -1,23 +1,22 @@
 import React from 'react'
 import { connect } from 'dva'
-import { SegmentedControl, Icon } from 'antd-mobile'
+import { Icon } from 'antd-mobile'
 import List from './components/list'
-import style from './list.less'
+// import style from './list.less'
+import NavBar from '../global/navBar'
 
 const ChatComponent = ({ list }) => {
+  const navBarProps = {
+    value1: '聊天',
+    value2: '通知(12)',
+    value1Func: () => { console.log('1') },
+    value2Func: () => { console.log('2') },
+    leftContent: <Icon type="check" />,
+    rightContent: <Icon type="check" />
+  }
   return (
     <div>
-      <div className={style.navbar}>
-        <div className={style.left}>
-          <Icon type="check" />
-        </div>
-        <div className={style.middle}>
-          <SegmentedControl values={['聊天', '通知']} style={{ width: '100%' }} />
-        </div>
-        <div className={style.right}>
-          <Icon type="check" />
-        </div>
-      </div>
+      <NavBar {...navBarProps} />
       <List chatList={list} />
     </div>
   )

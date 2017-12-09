@@ -10,8 +10,38 @@
 
 .badge {
     position: absolute;
-    width: 0.3rem;
-    height: 0.3rem;
-    background: red;
-    font-size: 12px;
+    transform: scale(0.85);
+    -webkit-transform: scale(0.85);
+    color: white;
+    left: 1.2rem;
+    
+}
+
+.card {
+    display: flex;
+}
+.info {
+    display: flex;
+}
+
+.right {
+    border-bottom: 1px solid #ccc;
+    flex: 1;
+    margin-left: 0.35rem;
+    display: flex;
+    flex-direction: column;
+}
+.username {
+    font-size: 0.4rem;
+}
+
+.time {
+    flex: 1;
+    text-align: right;
+    color: #999;
+}
+    
+.lastChat {
+    margin-top: 0.3rem;
+    font-size: 0.3rem;
 }

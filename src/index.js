@@ -1,6 +1,8 @@
 import dva from 'dva'
 import './index.css'
 
+import './common/JMessage'
+
 // 1. Initialize
 const app = dva()
 
@@ -18,3 +20,4 @@ app.router(require('./router'))
 
 // 5. Start
 app.start('#root')
+

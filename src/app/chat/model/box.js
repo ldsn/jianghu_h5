@@ -1,3 +1,5 @@
+
+
 export default {
   namespace: 'chatBox',
   state: {
