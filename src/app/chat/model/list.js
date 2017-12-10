@@ -14,7 +14,8 @@ export default {
       lastChat: '再见哦',
       badge: 1,
       time: timeago(1512797572130)
-    }, {
+    },
+    {
       chatId: 1,
       user: {
         username: '王大锤',
@@ -22,11 +23,10 @@ export default {
       },
       lastChat: '再见哦再见哦再见哦再见哦再见哦再见哦再见哦再见哦再见哦再见哦再见哦再见哦再见哦',
       badge: 1
-    }]
+    }],
   },
   subscriptions: {
     setup ({ dispatch, history }) { // eslint-disable-line
-      dispatch({ type: 'fetch' })
       event.on('msgReceive', data => {
         dispatch({ type: 'msgReceive', data })
       })
