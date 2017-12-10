@@ -17,7 +17,6 @@ class CreateBtn extends React.Component {
   render () {
     return (
       <Popover
-        mask
         overlayClassName="fortest"
         overlayStyle={{ color: 'currentColor' }}
         visible={this.state.visible}
@@ -56,17 +55,18 @@ const tabbarConf = {
     title: '首页',
     key: 'home',
     icon: <Icon type="check" />,
+    onPress: ({dispatch}) => { dispatch(routerRedux.replace('/home')) },
     selectedIcon: <Icon type="check-circle" />
   },
   {
     title: '江湖',
     key: 'life',
     icon: <Icon type="check" />,
+    onPress: ({dispatch}) => { dispatch(routerRedux.replace('/life')) },
     selectedIcon: <Icon type="check-circle" />
   },
   {
     key: 'article/create',
-    onPress: () => {},
     selectedIcon: <CreateBtn />,
     icon: <CreateBtn />
   },
@@ -74,12 +74,14 @@ const tabbarConf = {
     title: '聊天',
     key: 'chat',
     icon: <Icon type="check" />,
+    onPress: ({dispatch}) => { dispatch(routerRedux.replace('/chat')) },
     selectedIcon: <Icon type="check-circle" />
   },
   {
     title: '我的',
     key: 'user',
     icon: <Icon type="check" />,
+    onPress: ({dispatch}) => { dispatch(routerRedux.replace('/user')) },
     selectedIcon: <Icon type="check-circle" />
   }]
 }
@@ -116,11 +118,12 @@ class TabbarComponent extends React.Component {
     this.setState({
       selectedTab: key
     })
-    dispatch(routerRedux.replace(`/${key}`))
+    // dispatch(routerRedux.replace(`/${key}`))
   }
 
   render () {
     const { selectedTab, content } = this.state
+    const { dispatch } = this.props
     return (
       <div
         className="navbar"
@@ -136,7 +139,13 @@ class TabbarComponent extends React.Component {
                 {...conf}
                 selected={selectedTab === conf.key}
                 onPress={() => {
-                  return conf.onPress ? conf.onPress(conf) : this.handlePress(conf.key)
+                  this.handlePress(conf.key)
+                  if (conf.onPress) {
+                    conf.onPress({
+                      conf,
+                      dispatch
+                    })
+                  }
                 }}
               >
                 { content[conf.key] }
