@@ -1,13 +1,10 @@
 import React from 'react'
 import { connect } from 'dva'
-import Thingshead from './things_head'
-import Things from './things'
+import Things from './things/index.js'
 
 const LifeComponent = () => {
   return (
     <div style={{ height: '100%', overflowY: 'auto' }}>
-      <Thingshead />
-
       <Things />
     </div>
   )

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Flex } from 'antd-mobile'
-import Style from './things_head.less'
-import headDefaultImg from './_head_img.jpeg'
+import Style from './thingsHeader.less'
+import headDefaultImg from '../_head_img.jpeg'
 
 const tempData = {
   id: '123',
