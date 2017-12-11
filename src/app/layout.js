@@ -3,7 +3,8 @@ import { connect } from 'dva'
 import { Route, Switch } from 'dva/router'
 import TabBar from './global/tabbar'
 import Home from './home'
-import User from './user'
+import UserInfo from './user/UserInfo'
+import EditUser from './user/EditUser'
 import Chat from './chat/list'
 import Life from './life'
 import ArticleDetail from './article/detail'
@@ -17,7 +18,8 @@ const Layout = props => {
           <Route exect path="/home" component={Home} />
           <Route exect path="/life" component={Life} />
           <Route exect path="/chat" component={Chat} />
-          <Route exect path="/user" component={User} />
+          <Route exect path="/user" component={UserInfo} />
+          <Route exect path="/edit" component={EditUser} />
           <Route exect path="/article/create" component={ArticleCreate} />
           <Route exect path="/article/:id" component={ArticleDetail} />
           <Route exect path="/" component={Home} />
