@@ -32,10 +32,10 @@ class CreateBtn extends React.Component {
         ), (
           <Popover.Item
             key="6"
-            value="home"
+            value="things/create"
             icon={<Icon type="check-circle" />}
           >
-            <Link to="/home">发朋友圈</Link>
+            <Link to="/things/create">发朋友圈</Link>
           </Popover.Item>
         )]}
         placement="top"
