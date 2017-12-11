@@ -9,8 +9,16 @@ const ChatComponent = ({ list }) => {
   const navBarProps = {
     value1: '聊天',
     value2: '通知(12)',
-    value1Func: () => { console.log('1') },
-    value2Func: () => { console.log('2') },
+    value1Func: () => {
+      /* eslint-disable */
+      console.log('1') 
+      /* eslint-enable */
+    },
+    value2Func: () => {
+      /* eslint-disable */
+      console.log('2') 
+      /* eslint-enable */
+    },
     leftContent: <Icon type="check" />,
     rightContent: <Icon type="check" />
   }

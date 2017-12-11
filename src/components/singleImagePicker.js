@@ -6,10 +6,6 @@ class ImagePicker extends React.Component {
     previewUrl: ''
   }
 
-  constructor (props) {
-    super(props)
-  }
-
   onFileChange = () => {
     if (this.fileInput && this.fileInput.files.length) {
       this.parseFile(this.fileInput.files[0])
@@ -17,7 +13,9 @@ class ImagePicker extends React.Component {
   }
 
   parseFile (file) {
+    /* eslint-disable */
     const reader = new FileReader()
+    /* eslint-enable */
     reader.onload = e => {
       const result = e.target.result
 
@@ -41,7 +39,7 @@ class ImagePicker extends React.Component {
     const { previewUrl } = this.state
     const previewProps = {
       className: Style.preview,
-      style: {backgroundImage: `url(${previewUrl})`}
+      style: { backgroundImage: `url(${previewUrl})` }
     }
 
     return (

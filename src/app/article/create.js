@@ -36,8 +36,7 @@ class CreateComponent extends React.Component {
     })
   }
 
-  onBannerChange = ({file, url}) => {
-  }
+  onBannerChange = () => {}
 
   render () {
     return (

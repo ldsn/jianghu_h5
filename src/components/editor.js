@@ -1,7 +1,4 @@
 import React from 'react'
-import { connect } from 'dva'
-import { ImagePicker } from 'antd-mobile'
-import { getUid } from 'utils'
 import Style from './editor.less'
 
 export default class Editor extends React.Component {

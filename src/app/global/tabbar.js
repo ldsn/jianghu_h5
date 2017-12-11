@@ -55,14 +55,14 @@ const tabbarConf = {
     title: '首页',
     key: 'home',
     icon: <Icon type="check" />,
-    onPress: ({dispatch}) => { dispatch(routerRedux.replace('/home')) },
+    onPress: ({ dispatch }) => { dispatch(routerRedux.replace('/home')) },
     selectedIcon: <Icon type="check-circle" />
   },
   {
     title: '江湖',
     key: 'life',
     icon: <Icon type="check" />,
-    onPress: ({dispatch}) => { dispatch(routerRedux.replace('/life')) },
+    onPress: ({ dispatch }) => { dispatch(routerRedux.replace('/life')) },
     selectedIcon: <Icon type="check-circle" />
   },
   {
@@ -74,14 +74,14 @@ const tabbarConf = {
     title: '聊天',
     key: 'chat',
     icon: <Icon type="check" />,
-    onPress: ({dispatch}) => { dispatch(routerRedux.replace('/chat')) },
+    onPress: ({ dispatch }) => { dispatch(routerRedux.replace('/chat')) },
     selectedIcon: <Icon type="check-circle" />
   },
   {
     title: '我的',
     key: 'user',
     icon: <Icon type="check" />,
-    onPress: ({dispatch}) => { dispatch(routerRedux.replace('/user')) },
+    onPress: ({ dispatch }) => { dispatch(routerRedux.replace('/user')) },
     selectedIcon: <Icon type="check-circle" />
   }]
 }
@@ -114,11 +114,9 @@ class TabbarComponent extends React.Component {
   }
 
   handlePress = key => {
-    const { dispatch } = this.props
     this.setState({
       selectedTab: key
     })
-    // dispatch(routerRedux.replace(`/${key}`))
   }
 
   render () {

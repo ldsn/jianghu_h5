@@ -80,7 +80,9 @@ export default {
       yield put({ type: 'save', payload: { list } })
     },
     * syncConversation ({ payload }, { call, put }) { // eslint-disable-line
+      /* eslint-disable */
       console.log(payload)
+      /* eslint-enable */
     }
   },
   reducers: {
