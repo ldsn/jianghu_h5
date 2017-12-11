@@ -23,7 +23,7 @@ export default {
       },
       lastChat: '再见哦再见哦再见哦再见哦再见哦再见哦再见哦再见哦再见哦再见哦再见哦再见哦再见哦',
       badge: 1
-    }],
+    }]
   },
   subscriptions: {
     setup ({ dispatch, history }) { // eslint-disable-line

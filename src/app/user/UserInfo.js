@@ -9,7 +9,7 @@ const Brief = Item.Brief
 
 let UserInfo = props => {
   const { getFieldProps } = props.form
-
+  const { user } = props
   return (
     <div>
       <List className="my-list">
@@ -19,20 +19,20 @@ let UserInfo = props => {
           multipleLine
           onClick={() => { props.history.push('/edit') }}
         >
-        我是名字<Brief>我是描述</Brief>
+          {user.user_name}<Brief>{user.user_des}</Brief>
         </Item>
         <Item>
           <div className={Style.itemBox}>
             <div className={Style.item}>
-              <span>300</span>
+              <span>{user.follow}</span>
               <span>关注</span>
             </div>
             <div className={Style.item}>
-              <span>300</span>
+              <span>{user.fans}</span>
               <span>粉丝</span>
             </div>
             <div className={Style.item}>
-              <span>300</span>
+              <span>{user.dynamic}</span>
               <span>动态</span>
             </div>
           </div>
@@ -41,10 +41,10 @@ let UserInfo = props => {
           extra={
             <Switch
               {...getFieldProps('Switch1', {
-                initialValue: true,
+                initialValue: user.if_receive_message,
                 valuePropName: 'checked'
               })}
-              onClick={checked => { console.log(checked) }}
+              onClick={() => { props.dispatch({ type: 'user/changeInfoSwitch' }) }}
             />
           }
         >接收陌生人的消息</Item>
@@ -52,10 +52,10 @@ let UserInfo = props => {
           extra={
             <Switch
               {...getFieldProps('Switch2', {
-                initialValue: true,
+                initialValue: user.if_search,
                 valuePropName: 'checked'
               })}
-              onClick={checked => { console.log(checked) }}
+              onClick={() => { props.dispatch({ type: 'user/ifSearch' }) }}
             />
           }
         >允许别人搜索到我</Item>
@@ -67,4 +67,10 @@ let UserInfo = props => {
   )
 }
 UserInfo = createForm()(UserInfo)
-export default connect()(UserInfo)
+
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  }
+}
+export default connect(mapStateToProps)(UserInfo)
