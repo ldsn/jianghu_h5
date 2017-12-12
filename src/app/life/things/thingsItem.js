@@ -20,9 +20,6 @@ const ThingItems = ({ data, onComment }) => {
             <img role="presentation" src={data.coverImageLink} />
           </div>
           <div className={Style.footer}>
-            <Flex justify="between">
-              <span style={{ color: '#808080' }}>{data.createTime}</span>
-            </Flex>
           </div>
         </Flex.Item>
       </Flex>
