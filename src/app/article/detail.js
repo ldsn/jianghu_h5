@@ -34,7 +34,7 @@ const ArticleDetail = () => {
         className={Style.navbar}
         mode="light"
         icon={<Icon type="left" />}
-        onLeftClick={() => window.history.go(-1)}
+        onLeftClick={() => window.history.go(-1)} // eslint-disable-line
       >{article.title}</NavBar>
       <div className={Style.articleWrapper}>
         <div
