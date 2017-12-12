@@ -5,10 +5,10 @@ import Carousel from './carousel'
 import Articles from './articles'
 import Tools from './tools'
 
-const HomeComponent = () => {
+const HomeComponent = ({ dispatch }) => {
   return (
     <div>
-      <Articles />
+      <Articles dispatch={dispatch}/>
     </div>
   )
 }
