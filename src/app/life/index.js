@@ -4,7 +4,7 @@ import Things from './things/index.js'
 
 const LifeComponent = () => {
   return (
-    <div style={{ height: '100%', overflowY: 'auto' }}>
+    <div style={{ height: '100%', overflowY: 'auto', WebkitOverflowScrolling: "touch" }}>
       <Things />
     </div>
   )

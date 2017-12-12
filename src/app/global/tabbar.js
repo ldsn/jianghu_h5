@@ -64,25 +64,6 @@ const tabbarConf = {
     icon: <Icon type="check" />,
     onPress: ({ dispatch }) => { dispatch(routerRedux.replace('/life')) },
     selectedIcon: <Icon type="check-circle" />
-  },
-  {
-    key: 'article/create',
-    selectedIcon: <CreateBtn />,
-    icon: <CreateBtn />
-  },
-  {
-    title: '聊天',
-    key: 'chat',
-    icon: <Icon type="check" />,
-    onPress: ({ dispatch }) => { dispatch(routerRedux.replace('/chat')) },
-    selectedIcon: <Icon type="check-circle" />
-  },
-  {
-    title: '我的',
-    key: 'user',
-    icon: <Icon type="check" />,
-    onPress: ({ dispatch }) => { dispatch(routerRedux.replace('/user')) },
-    selectedIcon: <Icon type="check-circle" />
   }]
 }
 

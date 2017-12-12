@@ -6,24 +6,7 @@ import Style from './index.less'
 import ThingsHeader from './thingsHeader'
 import ThingItem from './thingsItem'
 
-const tempData = [
-  {
-    id: '123',
-    headImg: '',
-    nickname: '鱼儿',
-    things: '前端最流弊, 后端最菜.前端最流弊, 后端最菜.前端最流弊, 后端最菜.前端最流弊, 后端最菜.前端最流弊, 后端最菜.',
-    imgList: [''],
-    date: '2小时前'
-  },
-  {
-    id: '456',
-    headImg: '',
-    nickname: '小傻子',
-    things: '前端最流弊, 后端最菜.前端最流弊, 后端最菜.前端最流弊, 后端最菜.前端最流弊, 后端最菜.前端最流弊, 后端最菜.',
-    imgList: [''],
-    date: '2小时前'
-  }
-]
+
 
 function mapDispatchToProps (dispatch) {
   return {
@@ -63,10 +46,9 @@ class ThingComponent extends React.Component {
   }
   render () {
     return (
-      <div className={Style.thingsWrapper}>
-        <ThingsHeader />
+      <div className={Style.thingsWrapper} >
         {
-          tempData.map(data =>
+          window.timelines.map(data =>
             <ThingItem
               onComment={this.handleDoingComment}
               key={data.id}

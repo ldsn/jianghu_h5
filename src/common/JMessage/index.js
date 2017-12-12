@@ -1,16 +1,16 @@
-/* eslint-disable */
-import event from 'utils/event'
+// /* eslint-disable */
+// import event from 'utils/event'
 
-import { login } from '../api/chat'
-login()
-JIM.onDisconnect(() => {
-    console.log('JIM 断线啦')
-})
+// import { login } from '../api/chat'
+// login()
+// JIM.onDisconnect(() => {
+//     console.log('JIM 断线啦')
+// })
 
-JIM.onMsgReceive(data => {
-    event.emit('msgReceive', data)
-})
+// JIM.onMsgReceive(data => {
+//     event.emit('msgReceive', data)
+// })
 
-JIM.onSyncConversation(data => {
-    event.emit('syncConversation', data)
-})
+// JIM.onSyncConversation(data => {
+//     event.emit('syncConversation', data)
+// })

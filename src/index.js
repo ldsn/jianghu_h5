@@ -15,6 +15,7 @@ app.model(require('app/global/model'))
 app.model(require('app/chat/model/box'))
 app.model(require('app/chat/model/list'))
 app.model(require('app/user/model/user'))
+app.model(require('app/article/model/article'))
 
 // 4. Router
 app.router(require('./router'))

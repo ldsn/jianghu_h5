@@ -8,9 +8,6 @@ import Tools from './tools'
 const HomeComponent = () => {
   return (
     <div>
-      <SearchBar />
-      <Carousel />
-      <Tools />
       <Articles />
     </div>
   )
