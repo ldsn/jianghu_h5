@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'dva'
+import { NavBar, Icon } from 'antd-mobile'
 import Style from './detail.less'
 import defaultBannerImg from './defaultBanner.jpg'
 
@@ -29,11 +30,17 @@ const ArticleDetail = () => {
   return (
     <div className={Style.wrapper}>
       { /* banner */ }
-      <div
-        className={Style.bannerBg}
-        style={{ backgroundImage: `url(${article.coverImageLink || defaultBannerImg})` }}
-      />
+      <NavBar
+        className={Style.navbar}
+        mode="light"
+        icon={<Icon type="left" />}
+        onLeftClick={() => window.history.go(-1)}
+      >{article.title}</NavBar>
       <div className={Style.articleWrapper}>
+        <div
+          className={Style.bannerBg}
+          style={{ backgroundImage: `url(${article.coverImageLink || defaultBannerImg})` }}
+        />
         <h1 className={Style.title}>{article.title}</h1>
         <div className={Style.caption}>
           <span>{publishUser.username}</span>&nbsp;&nbsp;
