@@ -11,77 +11,24 @@ export default {
     avator: '', // 头像
     sex: 1, // 性别
     department: '交通学院', // 院系
-    birth: 0 // 生日
+    birth: 0, // 生日
+    loading: false // 是否显示loading
   },
   effects: {
-    *changeInfoSwitch (action, { put }) {
-      yield put({ type: 'ifReceiveMessage' })
-    },
-    *changeSearchSwitch (action, { put }) {
-      yield put({ type: 'ifSearch' })
-    },
-    *changeUserName (action, { put }) {
-      yield put({ type: 'modifyUserName', userName: action.userName })
-    },
-    *changePersonalExplain (action, { put }) {
-      yield put({ type: 'modifyPersonalExplain', user_des: action.userDes })
-    },
-    *changeSex (action, { put }) {
-      yield put({ type: 'modifySex', sex: action.sex })
-    },
-    *changeDepartment (action, { put }) {
-      yield put({ type: 'modifyDepartment', department: action.department })
-    },
-    *changeBirth (action, { put }) {
-      yield put({ type: 'modifyBirth', birth: action.birth })
+    *changeUserInfo (action, { put }) {
+      yield put({ type: 'saveUserInfo', info: action.info })
     }
   },
   reducers: {
-    ifReceiveMessage (state) {
-      const ifReceiveMessage = state.if_receive_message ? 0 : 1
+    saveUserInfo (state, action) {
+      const newState = JSON.parse(JSON.stringify(state))
+      const infoKey = action.info.key
+      const infoValue = action.info.value
 
-      return {
-        ...state,
-        if_receive_message: ifReceiveMessage
-      }
-    },
-    ifSearch (state) {
-      const ifSearch = state.if_search ? 0 : 1
+      newState[infoKey] = infoValue
+      newState.loading = false
 
-      return {
-        ...state,
-        if_search: ifSearch
-      }
-    },
-    modifyUserName (state, action) {
-      return {
-        ...state,
-        user_name: action.userName
-      }
-    },
-    modifyPersonalExplain (state, action) {
-      return {
-        ...state,
-        user_des: action.userDes
-      }
-    },
-    modifySex (state, action) {
-      return {
-        ...state,
-        sex: action.sex
-      }
-    },
-    modifyDepartment (state, action) {
-      return {
-        ...state,
-        department: action.department
-      }
-    },
-    modifyBirth (state, action) {
-      return {
-        ...state,
-        birth: action.birth
-      }
+      return newState
     }
   }
 }

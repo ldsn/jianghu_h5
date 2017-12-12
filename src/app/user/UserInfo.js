@@ -15,7 +15,7 @@ let UserInfo = props => {
       <List className="my-list">
         <Item
           arrow="horizontal"
-          thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+          thumb={user.avator}
           multipleLine
           onClick={() => { props.history.push('/edit') }}
         >
@@ -44,7 +44,15 @@ let UserInfo = props => {
                 initialValue: user.if_receive_message,
                 valuePropName: 'checked'
               })}
-              onClick={() => { props.dispatch({ type: 'user/changeInfoSwitch' }) }}
+              onClick={() => {
+                props.dispatch({
+                  type: 'user/changeUserInfo',
+                  info: {
+                    key: 'if_receive_message',
+                    value: user.if_receive_message ? 0 : 1
+                  }
+                })
+              }}
             />
           }
         >接收陌生人的消息</Item>
@@ -55,7 +63,15 @@ let UserInfo = props => {
                 initialValue: user.if_search,
                 valuePropName: 'checked'
               })}
-              onClick={() => { props.dispatch({ type: 'user/ifSearch' }) }}
+              onClick={() => {
+                props.dispatch({
+                  type: 'user/changeUserInfo',
+                  info: {
+                    key: 'if_search',
+                    value: user.if_search ? 0 : 1
+                  }
+                })
+              }}
             />
           }
         >允许别人搜索到我</Item>
