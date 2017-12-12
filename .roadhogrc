@@ -27,5 +27,8 @@
       ]
     }
   },
+  "cssModulesExclude": [
+    "./src/assets/icon/iconfont.css"
+  ],
   "theme": "./src/common/theme.js"
 }

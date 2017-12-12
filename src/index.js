@@ -1,6 +1,6 @@
 import dva from 'dva'
 import './index.css'
-
+import './assets/icon/iconfont.css'
 import './common/JMessage'
 
 // 1. Initialize

@@ -18,7 +18,8 @@ const contentConfig = [
 const listItem = contentConfig.map((item, index) =>
   <li className={Style.items} key={index}>
     <div className={Style.icons}>
-      <Icon className={Style.iconItem} type="check" size="lg" />
+      {/* <Icon className={Style.iconItem} type="check" size="lg" /> */}
+      <i className="iconfont icon-homer-copy" />
     </div>
     {item}
   </li>
