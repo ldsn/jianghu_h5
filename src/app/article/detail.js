@@ -1,10 +1,11 @@
 import React from 'react'
 import { connect } from 'dva'
+import { routerRedux } from 'dva/router'
 import { NavBar, Icon } from 'antd-mobile'
 import Style from './detail.less'
 import defaultBannerImg from './defaultBanner.jpg'
 
-const ArticleDetail = ({id}) => {
+const ArticleDetail = ({id, dispatch}) => {
   const cid = id
   const article = window.articles.filter(({id})=>id == cid)[0] || {}
   console.log(article)
@@ -16,7 +17,7 @@ const ArticleDetail = ({id}) => {
         className={Style.navbar}
         mode="light"
         icon={<Icon type="left" />}
-        onLeftClick={() => window.history.go(-1)} // eslint-disable-line
+        onLeftClick={() => dispatch(routerRedux.replace(`/`))} // eslint-disable-line
       >{article.title.substring(0, 15)}</NavBar>
       <div className={Style.articleWrapper}>
         <div
