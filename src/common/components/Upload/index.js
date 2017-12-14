@@ -7,11 +7,13 @@ export default class Upload extends React.Component {
     loadSuccess: () => {},
     loadError: () => {},
     loading: () => {},
-    trigger: false
+    trigger: false,
+    triggerEnd: () => {}
   }
   componentWillUpdate (nextProps) {
     if (nextProps.trigger) {
       this.inputFile.click()
+      this.props.triggerEnd()
     }
   }
   onFileChange () {

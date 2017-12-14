@@ -44,6 +44,7 @@ class EditUser extends React.Component {
             }}
           ><Upload
             trigger={this.state.trigger}
+            triggerEnd={() => { this.setState({ trigger: false }) }}
             loadStart={() => {
               this.setState({
                 loading: true
