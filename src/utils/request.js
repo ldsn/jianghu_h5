@@ -1,10 +1,12 @@
 import fetch from 'dva/fetch'
+import config from 'common/config'
+import qs from 'qs'
 
-function parseJSON (response) {
+function parseJSON(response) {
   return response.json()
 }
 
-function checkStatus (response) {
+function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response
   }
@@ -21,7 +23,22 @@ function checkStatus (response) {
  * @param  {object} [options] The options we want to pass to "fetch"
  * @return {object}           An object containing either "data" or "err"
  */
-export default function request (url, options) {
+export default function request({ url, data = {}, type = 'get' }) {
+  const options = {}
+  options.method = type.toLowerCase()
+
+  url = config.domain + url
+  if (type.toLowerCase() == 'get') {
+    url += qs.stringify(data)
+  } else if (type.toLowerCase() == 'post') {
+    options.body = { ...options.body, ...data }
+  }
+
+  // options.headers = {
+  //   ...options.headers,
+  //   ...{ "Content-Type": "application/json" }
+  // }
+
   return fetch(url, options)
     .then(checkStatus)
     .then(parseJSON)
