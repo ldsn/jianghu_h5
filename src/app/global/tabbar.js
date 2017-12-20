@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'dva'
 import { TabBar, Icon, Popover } from 'antd-mobile'
 import { routerRedux, Link } from 'dva/router'
+import IconFont from 'components/iconFont'
+import Style from './tabbar.less'
 
 class CreateBtn extends React.Component {
   state = {
@@ -32,10 +34,10 @@ class CreateBtn extends React.Component {
         ), (
           <Popover.Item
             key="6"
-            value="home"
+            value="things/create"
             icon={<Icon type="check-circle" />}
           >
-            <Link to="/home">发朋友圈</Link>
+            <Link to="/things/create">发朋友圈</Link>
           </Popover.Item>
         )]}
         placement="top"
@@ -46,6 +48,12 @@ class CreateBtn extends React.Component {
   }
 }
 
+const TabIcon = (props) => {
+  return (
+    <IconFont className={Style.iconfont} {...props} />
+  )
+}
+
 const tabbarConf = {
   tabbar: {
     barTintColor: 'white',
@@ -54,16 +62,16 @@ const tabbarConf = {
   items: [{
     title: '首页',
     key: 'home',
-    icon: <Icon type="check" />,
+    icon: <TabIcon type="icon-homer-copy" />,
     onPress: ({ dispatch }) => { dispatch(routerRedux.replace('/home')) },
-    selectedIcon: <Icon type="check-circle" />
+    selectedIcon: <TabIcon type="icon-homer-copy" />
   },
   {
     title: '江湖',
     key: 'life',
-    icon: <Icon type="check" />,
+    icon: <TabIcon type="icon-life" />,
     onPress: ({ dispatch }) => { dispatch(routerRedux.replace('/life')) },
-    selectedIcon: <Icon type="check-circle" />
+    selectedIcon: <TabIcon type="icon-life" />
   },
   {
     key: 'article/create',
@@ -73,16 +81,16 @@ const tabbarConf = {
   {
     title: '聊天',
     key: 'chat',
-    icon: <Icon type="check" />,
+    icon: <TabIcon type="icon-liaotian" />,
     onPress: ({ dispatch }) => { dispatch(routerRedux.replace('/chat')) },
-    selectedIcon: <Icon type="check-circle" />
+    selectedIcon: <TabIcon type="icon-liaotian" />
   },
   {
     title: '我的',
     key: 'user',
-    icon: <Icon type="check" />,
+    icon: <TabIcon type="icon-wode" />,
     onPress: ({ dispatch }) => { dispatch(routerRedux.replace('/user')) },
-    selectedIcon: <Icon type="check-circle" />
+    selectedIcon: <TabIcon type="icon-wode" />
   }]
 }
 
@@ -124,7 +132,7 @@ class TabbarComponent extends React.Component {
     const { dispatch } = this.props
     return (
       <div
-        className="navbar"
+        className={Style.wrapper}
         style={{ position: 'fixed', height: '100%', width: '100%', top: 0 }}
       >
         <TabBar
