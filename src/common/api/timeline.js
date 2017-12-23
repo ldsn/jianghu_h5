@@ -8,12 +8,12 @@ export async function getTimelineList({ type, pageNo }) {
 }
 
 export async function setTimeline({
-  type
-  textContent
-  textImages
-  showInstance
-  webpageUrl
-  webpageTitle
+  type,
+  textContent,
+  textImages,
+  showInstance,
+  webpageUrl,
+  webpageTitle,
   webpageImage
 }) {
   const timeline = {

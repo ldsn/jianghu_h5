@@ -1,16 +1,21 @@
 /* eslint-disable */
 import request from 'utils/request'
+import storage from 'utils/storage'
+import config from 'common/config'
 
-export async function login({ phone, password }) {
+export async function login({ phone, password, device }) {
   return request({
     url: `/user/login`,
     data: {
       phone,
-      password
+      password,
+      device
     },
     type: 'post'
-  }).then(data=>{
-
+  }).then(({data, err}) =>{
+    if (data) {
+        storage.setItem('access_token', data.access_token, config.tokenTime)
+    }
   })
 }
 
