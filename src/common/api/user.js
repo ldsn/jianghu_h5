@@ -20,6 +20,7 @@ export async function login({ phone, password, device }) {
 }
 
 export async function logout() {
+  storage.removeItem('access_token')
   return request({ url: `/user/logout` })
 }
 
